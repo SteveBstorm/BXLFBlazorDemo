@@ -1,0 +1,28 @@
+﻿@page "/demo2"
+
+<h3>Demo2</h3>
+
+<p>Valeur de mon binding : @MaValeur</p>
+<hr />
+<p>
+    Utilisation d'une partial class qui contient le code fonctionnel et d'une page razor dédiée au visuel
+</p>
+
+<hr />
+
+<IncludedComponent InputProp="42" Toto="Un texte au hasard"></IncludedComponent>
+
+
+<hr />
+<h3>Exercice 1</h3>
+<p>
+    Réaliser une liste d'article (id, nom, prix).
+    En deux composant
+    A gauche, la liste
+    A droite, le détail de l'article
+
+    Quand on sélectionne un article dans la liste, son détail s'affiche à droite
+</p>
+@code {
+
+}

@@ -1,0 +1,20 @@
+﻿@page "/demo1"
+
+<h3>Demo1 - Les bindings</h3>
+<p>@texte</p>
+<p>@MyProperty</p> @*Binding One-Way : Lecture de valeur*@
+<button @onclick="Increment">+</button> @*Event Binding : Lier un comportement à un évènement Javascript*@
+
+<input type="text" @bind="texte"/> @*Binding Two-Ways : Lecture / écriture d'une valeur*@
+
+@code {
+    private string test = "salut";
+
+    public string texte { get; set; }
+    public int MyProperty { get; set; } = 1;
+
+    public void Increment()
+    {
+        MyProperty += 1;
+    }
+}

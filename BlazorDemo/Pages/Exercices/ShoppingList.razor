@@ -1,0 +1,26 @@
+﻿@page "/exo1"
+@using BlazorDemo.Models
+<h3>ShoppingList</h3>
+
+<div class="col">
+    <div class="col-6">
+        <table class="table table-stripped">
+            <tr>
+                <th>Product Name</th>
+            </tr>
+            @foreach (Article item in ArticleList)
+           {
+               <tr>
+                   <td @onclick='() => SetSelected(item)' style="cursor:pointer;">@item.Name</td>
+               </tr>
+           }
+        </table>
+    </div>
+    <div class="col-6">
+        <Detail Selected="@Selected"></Detail>
+    </div>
+</div>
+
+@code {
+
+}
