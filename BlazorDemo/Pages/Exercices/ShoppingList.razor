@@ -1,26 +1,39 @@
 ﻿@page "/exo1"
+@inject NavigationManager nvm;
 @using BlazorDemo.Models
 <h3>ShoppingList</h3>
 
 <div class="col">
     <div class="col-6">
-        <table class="table table-stripped">
+        <div style="height : 200px; overflow-y:scroll">
+        <table class="table table-striped">
             <tr>
                 <th>Product Name</th>
             </tr>
-            @foreach (Article item in ArticleList)
+           @* @foreach (Article item in ArticleList)
            {
                <tr>
-                   <td @onclick='() => SetSelected(item)' style="cursor:pointer;">@item.Name</td>
+                   <td @onclick='() => SetId(item.Id)' style="cursor:pointer;">@item.Name</td>
                </tr>
-           }
+           }*@
+           <Virtualize Items="ArticleList" Context="item">
+               <tr>
+                   <td @onclick='() => SetId(item.Id)' style="cursor:pointer;">@item.Name</td>
+               </tr>
+           </Virtualize>
         </table>
+        </div>
     </div>
     <div class="col-6">
-        <Detail Selected="@Selected"></Detail>
+        <Detail Id="@SelectedId"></Detail>
     </div>
+    
 </div>
+<button @onclick="redirect">Ajouter</button>
 
 @code {
-
+    public void redirect()
+    {
+        nvm.NavigateTo("/addarticle");
+    }
 }

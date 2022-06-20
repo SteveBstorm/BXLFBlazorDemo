@@ -1,0 +1,18 @@
+﻿@page "/addarticle"
+<h3>AddArticleForm</h3>
+
+<EditForm Model="myNewArticle" OnValidSubmit="SubmitForm">
+    <DataAnnotationsValidator />
+    <p>
+        Nom Article : <InputText @bind-Value=myNewArticle.Name/>
+    </p>
+    <p>
+        Prix Article : <InputNumber @bind-Value=myNewArticle.Price/>
+    </p>
+    <button class="btn btn-success" type="submit">Ajouter</button>
+    <ValidationSummary />
+</EditForm>
+
+@code {
+
+}
